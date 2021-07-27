@@ -1,0 +1,72 @@
+body{
+    background-color: cadetblue;
+  }
+  .navbar{
+    margin-top: 0;
+  
+  }
+  
+  .heading{
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 30px;
+    height: fit-content;
+    width: 30%;
+    background-color: whitesmoke;
+    text-align: center;
+    color: black;
+  }
+  .box{
+    border:2px solid white;
+  border-radius:10px;
+  width:30%;
+  margin:auto;
+  
+  margin-top:20px;
+  background-color:rgb(231, 222, 207);
+  }
+
+  .top
+  {
+     border: 1px solid blue;
+     height: 120px;
+     width: 120px;
+     border-radius: 60px;
+     margin: auto;
+     margin-top: 30px;
+  }
+  
+  .top img{
+    width:120px;
+    height:120px;
+    border-radius: 60px;
+  }
+  .box .name{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .box .innerbox{
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 30px;
+    border: 1px solid red;
+  }
+  .box .innerbox div{
+    width: 44%;
+    display: inline-block;
+    border: 1px solid black;
+    padding-left: 15px;
+    margin-top: 2px;
+    margin-left: 2px;
+    font-size: 20px;
+    
+  }
+
+  .box .innerbox .high{
+    vertical-align: middle;
+  }
+    

@@ -1,0 +1,73 @@
+{% extends 'adminLayout.html' %}
+
+{% block title %}Add Election{% endblock %}
+
+{% block link %}
+<link type="text/css" rel="stylesheet" href="static/formStyle.css"/>
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Edit Released Election</h2>
+      </div>
+      <div class="row clearfix">
+
+
+        <div class="">
+          <form action="/edit" method='POST'>
+            <div class="input_field"> <div><label for="ename">Name of Election: </label></div>
+              <input type="text" name="ename" id="ename" value="{{data[1]}}" required />
+            </div>
+            
+            <div class="row clearfix">
+              <div><label>Candidate Registration</label></div>
+              <div class="col_half">
+                <div class="input_field"> <div><label for="sdate">Starts from:</label></div>
+                  <input type="datetime" name="sdate" id="sdate" value="{{data[2]}}" required />
+                </div>
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <div><label for="edate">Ends by:</label></div>
+                  <input type="datetime" name="edate" id="edate" value="{{data[3]}}" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="input_field"> <div><label for="rdate">Vote Casting start Datetime:</label></div>
+              <input type="datetime" name="vstart" id="rdate" value="{{data[4]}}" required />
+            </div>
+            <div class="input_field"> <div><label for="rdate">Vote Casting end Datetime:</label></div>
+              <input type="datetime" name="vend" id="rdate" value="{{data[5]}}" required />
+            </div>
+
+            
+            <div class="input_field"> <div><label for="rdate">Election Result Release Datetime:</label></div>
+              <input type="datetime" name="rdate" id="rdate" value="{{data[6]}}" required />
+            </div>
+            <div class="input_field"> <div><label for="ename">Write short note About Election: </label></div>
+              <input type="text" name="about" id="ename" value="{{data[7]}}" />
+            </div>
+            <input class="button" type="submit" value="Add Election" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}
+
+  {% block script %}
+
+
+  <script type="text/javascript">
+		$(document).ready(function () {
+        
+        $("#releaseNewElection").addClass("active");
+		})
+	</script>
+  
+  {% endblock %}

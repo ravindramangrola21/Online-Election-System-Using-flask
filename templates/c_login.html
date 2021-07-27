@@ -1,0 +1,40 @@
+{% extends 'homepage_layout.html' %}
+{% block title %}
+    candidate login
+{% endblock title %}
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/c_login.css">
+    <div class="flash">
+        <div style="text-align: center; width: 50%;margin: auto;margin-top: 150px;"> 
+        {% with messages = get_flashed_messages() %}  
+            {% if messages %}  
+               {% for message in messages %}  
+                  <label>{{message}}</label>
+               {% endfor %}  
+            {% endif %}  
+        {% endwith %}
+        </div>
+    <div class="form_wrapper">
+        <div class="form_container">
+            <div class="title_container">
+                <h2>Candidate Login</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="">
+                    <form action="/clogin" method='POST'>
+
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                            <input type="email" name="email" placeholder="Email" required autocomplete="off"/>
+                        </div>
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password" placeholder="Password" required />
+                        </div>
+
+                        <input class="button" type="submit" value="Login" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

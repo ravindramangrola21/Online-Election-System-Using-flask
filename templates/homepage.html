@@ -1,0 +1,230 @@
+{% extends 'homepage_layout.html' %}
+{% block title %}
+    homepage
+{% endblock title %}
+{% block link %}
+
+<link rel="stylesheet" href="static/main.css">
+<link type="text/css" rel="stylesheet" href="static/showCandidates.css" />
+<link rel="stylesheet" href="static/home_result.css">
+<link type="text/css" rel="stylesheet" href="static/timeline.css" />
+{% endblock link %}
+{% block content %}
+    <div class="slider">
+    <!-- fade css -->
+      <div class="myslide fade">
+        <div class="txt">
+          {% with messages = get_flashed_messages() %}
+           {% if messages %}
+            <ul class=flashes>
+               {% for message in messages %}
+                   <li>{{ message }}</li>
+              {% endfor %}
+           </ul>
+           {% endif %}
+        {% endwith %}
+         <h1>Welcome To Elect Online</h1>
+         <p>Each Vote Matter</p>
+        </div>
+        <img src="{{url_for('static', filename='imagesdummy/img1.jpg')}}" class="img1" style="width: 100%; height: 100%;">
+      </div>
+  
+      <div class="myslide fade">
+        <div class="txt1">
+
+          {% if var=='notice' %}
+          <div class="outer_box">
+            <h2>{{data[1]}}</h2>
+            <div class="box">
+                <div class="vertical_line"></div>
+        
+                <div class="movedots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                
+                <div class="movebigdots">
+                    <div class="bigdot"></div>
+                    <div class="bigdot"></div>
+                </div>
+        
+        
+                <div class="content">
+        
+                    <div class="putTogether">
+                        <div class="holder">
+                            <h4>
+                                Registration Start @
+                            </h4>
+                            <p>
+                                {{data[2]}}
+                            </p>
+                        </div>
+        
+                    </div>
+                    <div class="putTogether">
+                        <div class="holder">
+                            <h4>
+                                Registration End @
+                            </h4>
+                            <p>
+                                {{data[3]}}
+                            </p>
+                        </div>
+        
+                    </div>
+                    <div class="putTogether">
+                        <div class="holder">
+                            <h4>
+                                Voting Start @
+                            </h4>
+                            <p>
+                                {{data[4]}}
+                            </p>
+                        </div>
+        
+                    </div>
+                    <div class="putTogether">
+                        <div class="holder">
+                            <h4>
+                                Voting End @
+                            </h4>
+                            <p>
+                                {{data[5]}}
+                            </p>
+                        </div>
+        
+                    </div>
+                    <div class="putTogether">
+                        <div class="holder">
+                            <h4>
+                                Result Declaration @
+                            </h4>
+                            <p>
+                                {{data[6]}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        
+          <script type="text/javascript">
+            $(document).ready(function () {
+                $("#home").addClass("active");
+            })
+          </script>
+          {% elif var=='voting' %}
+            <div class="heading"><h2>Vote Casting Panel</h2></div>
+            <div class="box">
+
+              {% for row in data  %}
+        
+                <div class="innerbox">
+                <div class="column"><h3>{{row[1]}} {{row[2]}}</h3></div>
+                  {% if row[3]=='dummy' %}
+                    <div class="column"><img src="{{url_for('static',filename='imagesdummy/dummy.jpg')}}"/></div>
+                  {% else %}
+                    <div class="column"><img src="{{url_for('static',filename='images/'+row[3])}}"/></div>
+                  {% endif %}
+                    <div class="column"><div><a href="/voted/{{row[0]}}"><button>Vote</button></a></div></div>
+                </div>
+              {% endfor %}
+            </div>
+          {% elif var=="candidate_list" %}
+            <div class="heading1"><h2>Candidates List</h2></div>
+            <div class="container">  
+              {% for row in data %}
+                <div class="candidate">
+                  <div class="top"></div>
+                  <div class="restPart">
+                    {% if row[3]=='dummy' %}
+                      <img class="candidateLogo" src="{{url_for('static',filename='imagesdummy/dummy.jpg')}}"/>
+                    {% else %}
+                      <img class="candidateLogo" src="{{url_for('static',filename='images/'+row[3])}}"/>
+                    {% endif %}
+                    <div class="intro">
+                      <h3>{{row[1] }} {{row[2]}}</h3>
+                    </div>
+                    <a href="/knowMore/{{row[0]}}" style="text-decoration: none;"><button class="btn">More INFO</button></a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% elif var=='result_wait' %}
+          <div class="no_election">
+            <h2> Note : <span style="color: rgb(202, 202, 223);">Election voting finished , Election result will be live on result Declaration date as per the schedule </span></h2>
+          </div>
+          {% elif var=='result' %}  
+          <div class="heading2"><h2>Voting Statistics</h2></div>
+          <div class="static">
+            <table id="customers">
+              <thead>
+                <th class="id1">ID</th>
+                <th class="id2">Candidate Name</th>
+                <th class="id3">Profile Photo</th>
+                <th class="id4">Votes</th>
+              </thead>
+              {% for row in data1  %}
+              <tbody>
+                <td class="id1">{{row[0]}}</td>
+                <td class="id2"><h3>{{row[2]}} {{row[3]}}</h3></td>
+                <td class="id3">
+                  {% if row[1]=='dummy' %}
+                    <img class="result_pic" src="{{url_for('static',filename='imagesdummy/dummy.jpg')}}"/>
+                  {% else %}
+                    <img class="result_pic" src="{{url_for('static',filename='images/'+row[1])}}"/>
+                  {% endif %}
+                </td>
+                <td class="id4">{{row[5]}}</td>
+              </tbody>  
+              {% endfor %}
+            </table>
+          </div> 
+          <div class="static1">
+            <table id="customers1">
+              <thead>
+                <th class="id11" colspan="4">Winner</th>
+              </thead>
+              <tbody>
+                <td class="id111">{{data2[0]}}</td>
+                <td class="id21"><h3>{{data2[2]}} {{data2[3]}}</h3></td>
+                <td class="id31">
+                  {% if data2[1]=='dummy' %}
+                    <img class="result_pic" src="{{url_for('static',filename='imagesdummy/dummy.jpg')}}"/>
+                  {% else %}
+                    <img class="result_pic" src="{{url_for('static',filename='images/'+data2[1])}}"/>
+                  {% endif %}
+                </td>
+                <td class="id4">{{data2[5]}}</td>
+              </tbody>
+            </table>
+            </div>
+            <div class="static1" style="text-align: center;background-color: #04AA6D;height: 55px;line-height: 2;"><h2> Congratulations! {{data2[0][2]}} {{data2[0][3]}}, You won the Election</h2></div>
+
+          {% elif var=='NoElection' %}
+             <div class="no_election">
+               <h2> Note : <span style="color: rgb(202, 202, 223);">No election is running, As soon as a new election would be released ,You can see election schedule notice & other activities as per schedule displaying here </span></h2>
+             </div>
+          {% endif %}
+        </div>
+        <img src="{{url_for('static', filename='imagesdummy/img2.jpg')}}" class="img1" style="width: 100%; height: 100%;">
+      </div>  
+        <!-- /fade css -->
+  
+         <!-- onclick js -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+        <div class="dotsbox" style="text-align:center">
+          <span class="dot1" onclick="currentSlide(1)"></span>
+          <span class="dot1" onclick="currentSlide(2)"></span>
+        </div>
+        <!-- /onclick js -->
+      </div>
+
+   <script src="static/jsfile.js"></script>
+{% endblock content %}

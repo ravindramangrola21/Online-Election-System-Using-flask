@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>
+            Contact us
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body{
+                background-color: rgba(0,0,0,0.5);;
+            }
+            .home{
+                width: 100%;
+                height: 55px;
+                background-color: crimson;
+                padding-left: 50px;
+            }
+            .home a{
+                text-decoration: none;
+                line-height: 1.7;
+                font-size: 30px;
+                color: white;
+            }
+            .home a:hover{
+                color: black;
+            }
+            .heading{
+                width: 50%;
+                margin: auto;
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 20px;
+                height: fit-content;
+            }
+            .content{
+                width: 60%;
+                margin: auto;
+                text-align: left;
+                min-height: 400px;
+                color: black;
+                background-color: aliceblue;
+                border-radius: 5px;
+                padding: 20px;
+                font-size: 20px;
+            }
+            .column{
+                float: left;
+                width: 49%;
+                
+                height: 400px;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+            <div class="home">
+                <a href="/">Home</a>
+            </div>
+            <div class="heading">
+                <h1>Contact Us</h1>
+                <p>We love to help you</p>
+            </div>
+            <div class="content">
+                <div class="column">
+                <p> {{data[0]}} , {{data[1]}},</p>
+                <p>{{data[2]}},</p>
+				<p>{{data[3]}} ({{data[4]}}),</p>
+				<p>India, {{data[5]}}</p>
+                <h3>Email :</h3><p>{{data[6]}}</p>  
+                <h3>Mobile number</h3><p>{{data[7]}}</p> 
+               </div>
+               <div class="column">
+                <iframe src="{{data[8]}}" width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+               </div>     
+            </div>
+    </body>
+</html>

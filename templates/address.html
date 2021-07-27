@@ -1,0 +1,63 @@
+    {% extends 'adminLayout.html' %}
+    {% block title %}
+       Address
+    {% endblock title %}
+    {% block link %}
+        <link rel="stylesheet" type="text/css" href="static/address.css">
+    {% endblock link %}
+    
+    {% block body %}
+     {% if data==none %}
+      <div class="border">
+      <h1>Add new office address</h1>
+
+      <div class="addressfield">
+
+        <form method="POST" action="/address">
+          <input type="text" placeholder="Plot No." name="plotno" required/>
+          <br>
+          <input type="text" placeholder="Street / Colony" name="strcolony" required>
+          <br>
+          <input type="text" placeholder="Area" name="area" required />
+          <br>
+          <input type="text" placeholder="City / District" name="city" required/>
+          <br>
+          <input type="text" placeholder="State" name="state" required/>
+          <br>
+          <input type="number" placeholder="Pin Code" name="pincode" required/>
+          <br>
+          <input type="email" placeholder="Office Email" name="email" required/>
+          <br>
+          <input type="text" placeholder=" Office Mobile Number" name="mobile"  required/>
+          <br>
+          <input type="text" placeholder="Google Map Pinned link" name="maplink" />
+          <br>
+          <button type="submit">Add Address</button>
+        </form>
+
+       </div>
+     </div>
+     {% else %}
+  <div class="heading">
+      <h1>Office Address</h1>
+  </div>
+  <div class="content">
+      <div class="column">
+      <p> {{data[0]}} , {{data[1]}},</p>
+      <p>{{data[2]}},</p>
+      <p>{{data[3]}} ({{data[4]}}),</p>
+      <p>India, {{data[5]}}</p>  
+      <br>
+      <h4>Email :</h4><p>{{data[6]}}</p>  <br>
+      <h4>Mobile number</h4><p>{{data[7]}}</p> 
+     </div>
+     <div class="column">
+      <iframe src="{{data[8]}}" width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+     </div>     
+  </div>
+  <div class="btn"><a href="/addnew"><button>Add New Address</button></a></div>
+     {% endif %}
+    {% endblock body %}
+    {% block script %}
+      
+    {% endblock script %}

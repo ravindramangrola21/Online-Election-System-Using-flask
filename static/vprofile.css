@@ -1,0 +1,91 @@
+.gfg {
+  margin: 3%;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.first-txt {
+  position: absolute;
+  top: 17px;
+  left: 50px;
+}
+
+.second-txt {
+  margin-left:  50px;
+  position: absolute;
+  bottom: 0px;
+  width: 100px;
+  text-align: center;
+
+}
+.main{
+  margin: auto;
+  margin-top: 70px;
+  width: 40%;
+  height: 650px;
+  border: 2px solid darkblue;
+  border-radius: 20px;
+  background-color: hotpink;
+ }
+ .circle_square {
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+.profilepic{
+  margin:auto;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 12;
+  border: 1px solid green;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: white;
+  padding:auto;
+  position: relative;
+}
+.imgbtn
+{
+   position: absolute;
+   
+}
+.name{
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+}
+.name1{
+  width: fit-content;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.info{
+  display:inline-block;
+  width:100%;
+  height: 50px;
+  text-align: center;
+  line-height: 2;
+}
+.logout{
+  text-align: center;
+  margin-top: 20px;
+}
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+background-color: #dddddd;
+}

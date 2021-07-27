@@ -1,0 +1,47 @@
+body{
+	font-family: monospace;
+	background-color: #575454;
+	color: #fff;
+}
+.heading{
+	text-align: center;
+	font-size: 45px;
+	border-bottom: 2px dotted #fff;
+    
+}
+
+.container{
+    margin-top: 100px;
+	background-color: #696868;
+
+}
+.btn-info{
+	width: 50%;
+	letter-spacing: 2px;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+}
+.btn-info:hover{
+	transform: scale(1.05);
+}
+.icn{
+	font-family: monospace;
+	font-size: 17px;
+   
+}
+hr{
+	width: 80%;
+}
+ul li a{
+	color: #fff;
+	float: left;
+	font-family: monospace;
+	font-size: 22px;
+	margin-left: 23px;
+	margin-right: 10px;
+	transition: 0.5s ease-in-out;
+}
+ul li a:hover{
+	color: #999;
+}
+

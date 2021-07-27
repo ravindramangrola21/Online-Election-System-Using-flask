@@ -1,0 +1,87 @@
+.heading1{
+    margin: auto; 
+    margin-top: 30px;
+    width: 30%; 
+    background-color:white;
+    border-radius: 20px;
+    text-align: center;
+    color: black;
+}
+.container{
+    background-color: floralwhite;
+    border: 5px solid white;
+    border-radius: 10px;
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: fit-content;
+    max-height:440px ;
+
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+    overflow-y: scroll; 
+  }
+  
+  .container::-webkit-scrollbar {
+    display: none; 
+  }
+
+.container .candidate{
+    background-color: black;
+    border-radius: 13px;
+    width: 250px;
+    height: 300px;
+    margin: 5px 1px;
+    text-align: center;
+    min-width: 220px;
+    overflow: hidden;
+}
+.container .candidate .top{
+    background-color: #00a6ff;
+    border-radius: 13px 13px 0 0;
+    height: 106px;
+}
+.container .candidate .candidateLogo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: -83px;
+    margin-bottom: 14px;
+    background-color: white;
+    border: 5px solid white;
+}
+
+.container .candidate .restPart .intro{
+    padding-bottom: 15px;
+}
+.container .candidate .restPart .intro p{
+    font-family: math;
+
+}
+.container .candidate .restPart .info{
+    padding-bottom: 15px;
+}
+
+.container .candidate .restPart .btn{
+    display: block;
+    margin: 15px auto;
+    width: 110px;
+    border-radius: .5em;
+    color: white;
+    background-color: #00a6ff;
+    height: 30px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 991px) {
+    .container{
+         width: 100%;    
+    }
+
+}

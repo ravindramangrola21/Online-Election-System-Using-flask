@@ -1,0 +1,46 @@
+{% extends 'homepage_layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="static/home_result.css">
+  {% if bool %}
+    <div class="main">
+       <h1>Voting Statistics</h1>
+       <div class="static">
+          <table id="customers">
+            <tr>
+              <th>Candidate ID</th>
+              <th>Candidate Name</th>
+              <th>Vote Count</th>
+            </tr>
+            {% for row in data1  %}
+             <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}} {{row[2]}}</td>
+                <td>{{row[4]}}</td>
+              </tr>  
+            {% endfor %}
+          </table>
+       </div> 
+       <div class="static"> 
+           <table id="customers">
+               <tr>
+                   <th colspan="3" style="padding-left:300px;font-size: 20px;">Winner</th>
+               </tr>
+               {% for row in data2  %}
+               <tr>
+                   <td>{{row[0]}}</td>
+                   <td>{{row[1]}} {{row[2]}}</td>
+                   <td>{{row[4]}}</td>
+               </tr>
+               {% endfor %}
+           </table>
+       </div> 
+       <div>
+           <h2 style="margin-top: 30px;">Congratulations! {{data2[0][1]}}</h2>
+       </div>
+    </div> 
+    {% else %}
+         <h1>Result will be declared very soon</h1>
+    {% endif %}   
+
+{% endblock content %}

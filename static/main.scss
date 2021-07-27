@@ -1,0 +1,65 @@
+.main{
+    width: 50%;
+    background-color: #4d4b50;
+    height: 100vh;
+    float: left;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid white;
+
+    h3{
+        text-align: center;
+    }
+    .candidate{
+        display: flex;
+        flex-direction: column;
+        
+
+    }
+
+    .box{
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid white;
+    }
+    .info, .vote{
+        
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+    .info{
+        width: 70%;
+    }
+    .vote{
+        width: 30%;
+    }
+    .vote button{
+        width: 50%;
+    height: 22%;
+    border: 1px solid white;
+    background-color: #4d4b50;
+    color: white;
+    }
+    
+    .logo{
+        width: 70px;
+        height: 70px;
+        display: block;
+        margin: auto;
+    }
+    h4{
+        width: 55%;
+        font-family: sans-serif;
+
+    }
+    a{
+        display: block;
+        text-decoration: none;
+        color: white;
+        text-align: center
+    }
+
+}

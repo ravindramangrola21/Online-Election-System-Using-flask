@@ -1,0 +1,22 @@
+{% extends 'adminLayout.html' %}
+{% block title %}
+  Admin Panel
+{% endblock title %}
+{% block link %}
+<link type"text/css" rel="stylesheet" href="static/homepage_style.css"/>
+{% endblock link %}
+{% block body %}
+  
+{% if data==none %}
+    <div style="text-align: center; width: 50%;margin: auto;margin-top: 150px;"><h3>No Election Scheduled</h3></div>
+{% else %}
+<div style="text-align: center; width: 50%;margin: auto;margin-top: 150px;">
+    <h1>{{data[1]}}</h1>
+    <p>is in progress</p>
+</div>
+
+{% endif %}
+{% endblock body %} 
+{% block script %}
+  
+{% endblock script %}

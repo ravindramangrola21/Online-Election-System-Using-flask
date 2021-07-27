@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+		{% block title %}
+		    
+	    {% endblock title %}
+    </title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/homepage.css">
+	<link rel="stylesheet" href="static/dropdown.css">
+	{% block link %}
+		
+	{% endblock link %}
+</head>
+<body style="height: 2000px;">
+	<header>
+		<div id="logo">Elect<span id="logo-s">Online</span></div>
+		<span class="sign"><a href="/contact">CONTACT US</a></span>
+		<span class="sign">
+			<div class="dropdown">
+			<button class="dropbtn">LOGIN 
+			  <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+			  <a href="/clogin">Candidate</a>
+			  <a href="/vlogin">Voter</a>
+			</div>
+		  </div>
+		</span>
+		<span class="sign"><div class="dropdown">
+			<button class="dropbtn">REGISTER 
+			  <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+			  <a href="/cregister">Candidate</a>
+			  <a href="/vregister">Voter</a>
+			</div>
+		  </div>
+		</span>
+		<span class="sign">
+			<div class="dropdown">
+			<button class="dropbtn"> ACCOUNT
+			  <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+			  <a href="/candidate_account">Candidate</a>
+			  <a href="/voter_account">Voter</a>
+			</div>
+		  </div>
+		</span>
+		<span class="sign"><a href="/about">ABOUT</a></span>
+		<span class="sign"><a href="/">HOME</a></span>
+	</header>
+	{% block content %}
+		
+	{% endblock content %}
+
+</body>
+</html>
+
+

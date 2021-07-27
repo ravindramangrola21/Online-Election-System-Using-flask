@@ -1,0 +1,106 @@
+{% extends 'homepage_layout.html' %}
+{% block title %}
+    Voter registration
+{% endblock title %}
+{% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/v_style.css">
+    <div style="text-align: center; width: 50%;margin: auto;margin-top: 150px;"> 
+        {% with messages = get_flashed_messages() %}  
+            {% if messages %}  
+               {% for message in messages %}  
+                  <p>{{message}}</p>
+               {% endfor %}  
+            {% endif %}  
+        {% endwith %}
+        </div>
+    {% if data==() %}
+        <div style="text-align: center; width: 50%;margin: auto;margin-top: 150px; font-size: 20px;"><p>Error : No Running Election available for Voter registration</p></div>
+    {% else %}
+    <div class="form_wrapper">
+        <div class="form_container">
+            <div class="title_container">
+                <h2>Voter Registration</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="">
+                    <form method='POST' action="/vregister">
+                        <div class="row clearfix">
+                            <div class="col_half">
+                                <div class="input_field"> <span><i aria-hidden= "true" class="fa fa-user"></i></span>
+                                    <input type="text" name="Fname" placeholder="First Name" autocomplete="off"/>
+                                </div>
+                            </div>
+                            <div class="col_half">
+                                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                                    <input type="text" name="Lname" placeholder="Last Name" required autocomplete="off" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input_field"> <span><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                            <input type="date" name="dob" placeholder="Date of Birth" required />
+                        </div>
+                        <div class="input_field"> <span><i class="fa fa-mobile" aria-hidden="true"></i></span>
+                            <input type="text" name="phone" placeholder="Mobile" id="mobile" irequired />
+                        </div>
+                        
+                        <div class="input_field radio_option">
+                            <input type="radio" name="gender" id="rd1" value="Male">
+                            <label for="rd1">Male</label>
+                            <input type="radio" name="gender" id="rd2" value="Female">
+                            <label for="rd2">Female</label>
+                            <input type="radio" name="gender" id="rd3" value="Other">
+                            <label for="rd3">Other</label>
+                        </div>
+                        
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                            <input type="email" name="email" placeholder="Email" required autocomplete="off">
+                        </div>
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password" placeholder="Password" id="password" required >
+                        </div>
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="password" placeholder="Re-type Password" id="confirm_password" required>
+                        </div>
+                        
+                        <input class="button" type="submit" onclick="return Validate()" value="Register" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function Validate() 
+        {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm_password").value;
+            var Mobile=document.getElementById("mobile").value;
+
+            regx =/^[6-9][0-9]{9}$/;
+
+            if(!regx.test(Mobile))
+            {
+                alert("Enter Valid Mobile number");
+                return false;
+            }
+            else if(password=="")
+            {
+                alert('Password cannot be empty')
+                return false;
+            }
+            else if(confirmPassword=="")
+            {
+               alert('Confirm Password cannot be empty');
+               return false;
+            }
+            else if (password != confirmPassword) 
+            {
+                alert("Password and Confirm Password don't match");
+                return false;
+            }
+            
+            return true;
+        }
+    </script> 
+    {% endif %}
+{% endblock content %}    

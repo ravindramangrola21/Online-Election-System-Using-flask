@@ -1,0 +1,78 @@
+{% extends 'homepage_layout.html' %}
+
+{% block title %}
+     candidate profile
+{% endblock title %}
+{% block link %}
+<link type="text/css" rel="stylesheet" href="static/cprofile.css">
+{% endblock link %}
+{% block content %}
+
+    <div class="main">
+      <div class="gfg">
+        
+        {% if data[0][1]=='dummy' %}
+           <img src="{{url_for('static', filename='imagesdummy/dummy.jpg')}}" class="circle_square"  style="width: 200px; height: 200px;"/>
+        {% else %}
+           <img src="{{url_for('static', filename='images/'+data[0][1])}}" class="circle_square"  style="width: 200px; height: 200px;"/> 
+        {% endif %} 
+
+        <div class="second-txt">  
+        <a href="/image/candidate/{{data[0][0]}}" style="color: blue;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+          <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+          <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+        </svg></i></a>
+        </div>
+      </div>
+        <div class="name">
+            <h2>Welcome, Dear {{data[0][2]}} {{data[0][3]}}</h3>
+        </div>
+        <div class="name1">
+                <label>Candidate</label>
+        </div>
+        <hr>
+        <div class="info">
+            <label>Application Status : </label>
+            <label style="font-weight: bold;">{{data[0][10]}}</label>
+        </div>
+        <hr>
+        <div class="info1">
+            <h2>Personal Details</h2>
+        </div>
+        <table>
+            <tr>
+              <td>ID Number</td>
+              <td>{{data[0][0]}}</td>
+            </tr>
+            <tr>
+              <td>Date Of Birth</td>
+              <td>{{data[0][4]}}</td>
+              
+            </tr>
+            <tr>
+              <td>Mobile Number</td>
+              <td>{{data[0][5]}}</td>
+              
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>{{data[0][6]}}</td>
+              
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{data[0][7]}}</td>
+            </tr>
+            <tr>
+              <td>Brief Introduction</td>
+              <td>{{data[0][9]}}</td>
+            </tr>
+          </table>
+
+          <div class="button"><a href="/logout1" ><button>Log Out </button></a></div>
+        </div>
+
+    </div>
+  {% endblock content %}
+
+
